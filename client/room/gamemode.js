@@ -3,10 +3,10 @@ import { Game, Players, Inventory, LeaderBoard, BuildBlocksSet, Teams, Damage, B
 
 Damage.GetContext().DamageOut.Value = true;
 Damage.GetContext().FriendlyFire.Value = true;
-BreackGraph.OnlyPlayerBlocksDmg  = true;
+BreackGraph.OnlyPlayerBlocksDmg = true;
 
-Teams.Add("Blue", "<b><color=#9b111e>Зеки D</a></b>", new Color(1, 0.7, 0, 0);
-Teams.Add("Red", "<b>color=#9b111e>SCP</a></b>", new Color(1, 1, 1, 0));
+Teams.Add("Blue", "<b><color=#9b111e>Заключенные</a></b>", new Color(1, 0.5, 0, 0));
+Teams.Add("Red", "<b><color=#9b111e>Гвардейцы</a></b>", new Color(1, 1, 1, 0));
 var admsTeam = Teams.Get("Red");
 var playersTeam = Teams.Get("Blue");
 Teams.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
@@ -20,7 +20,7 @@ LeaderBoard.PlayerLeaderBoardValues = [
   new DisplayValueHeader("Kills", "<b>Киллы</b>", "<b>Киллы</b>"),
   new DisplayValueHeader("Deaths", "<b>Смерти</b>", "<b>Смерти</b>"),
   new DisplayValueHeader("Scores", "<b>Очки</b>", "<b>Очки</b>"),
-  new DisplayValueHeader("Статус", "Status", "Status")
+  new DisplayValueHeader("Статус", "<b>Статус</b>", "<b>Статус</b>")
 ];
 
 LeaderBoard.PlayersWeightGetter.Set(function(player) {
@@ -157,7 +157,6 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
     player.Properties.Get("Статус").Value = "ИГРОК";
   }
 });
-  
 
 Teams.OnPlayerChangeTeam.Add(function(player){ 
   player.Spawns.Spawn();
