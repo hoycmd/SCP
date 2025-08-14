@@ -3,9 +3,11 @@ import { Game, Players, Inventory, LeaderBoard, BuildBlocksSet, Teams, Damage, B
 
 Damage.GetContext().DamageOut.Value = true;
 Damage.GetContext().FriendlyFire.Value = true;
+BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool("PartialDesruction");
+BreackGraph.WeakBlocks = GameMode.Parameters.GetBool("LoosenBlocks");
 
-Teams.Add("Blue", "<b><color=#9b111e>Гвардейцы</color></b>", new Color(1, 1, 1, 0));
-Teams.Add("Red", "<b><color=#9b111e>Зеки D</color></b>", new Color(0, 0, 0, 0.5));
+Teams.Add("Blue", "<b>Игроки</b>", new Color(1, 0, 0, 0));
+Teams.Add("Red", "<b>Админы</b>", new Color(0, 0, 0, 0));
 var admsTeam = Teams.Get("Red");
 var playersTeam = Teams.Get("Blue");
 Teams.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
@@ -13,18 +15,21 @@ Teams.Get("Red").Spawns.SpawnPointsGroups.Add(2);
 playersTeam.Build.BlocksSet.Value = BuildBlocksSet.Blue;
 admsTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
 
+
+
 LeaderBoard.PlayerLeaderBoardValues = [
-  new DisplayValueHeader("Kills", "<b><color=#9b111e>Kills</color></b>", "<b><color=#9b111e>Kills</color></b>"),
-  new DisplayValueHeader("Deaths", "<b><color=#9b111e>Deaths</color></b>", "<b><color=#9b111e>Deaths</color></b>"),
-  new DisplayValueHeader("Scores", "<b><color=#9b111e>Scores</color></b>", "<b><color=#9b111e>Scores</color></b>"),
+  new DisplayValueHeader("Kills", "<b>Киллы</b>", "<b>Киллы</b>"),
+  new DisplayValueHeader("Deaths", "<b>Смерти</b>", "<b>Смерти</b>"),
+  new DisplayValueHeader("Scores", "<b>Очки</b>", "<b>Очки</b>"),
+  new DisplayValueHeader("Статус", "<b>Статус</b>", "<b>Статус</b>")
 ];
 
 LeaderBoard.PlayersWeightGetter.Set(function(player) {
   return player.Properties.Get("Scores").Value;
 });
 
+Ui.GetContext().TeamProp1.Value = { Team: "Blue", Prop: "Deaths" };
 Ui.GetContext().TeamProp2.Value = { Team: "Red", Prop: "Deaths" };
-admsTeam.Properties.Get("Deaths").Value = "<b><color=#9b111e>SCP</color></b>";
 
 Teams.OnRequestJoinTeam.Add(function(player,team){
   function getadm(player) {
@@ -57,18 +62,103 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
     player.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
     player.Damage.DamageIn.Value = false;
   }
-  if (player.id == "D4F07EE3D6175B53" || player.id == "2827CD16AE7CC982") {
+  function getvip1(player) {
+    player.inventory.Main.Value = true;
+    player.inventory.MainInfinity.Value = true;
+    player.inventory.Secondary.Value = true;
+    player.inventory.SecondaryInfinity.Value = true;
+    player.inventory.Melee.Value = true;
+    player.inventory.Explosive.Value = true;
+    player.contextedProperties.MaxHp.Value = 1000;
+  }
+  function getvip2(player) {
+    player.inventory.Main.Value = true;
+    player.inventory.MainInfinity.Value = true;
+    player.inventory.Secondary.Value = true;
+    player.inventory.SecondaryInfinity.Value = true;
+    player.inventory.Melee.Value = true;
+    player.inventory.Explosive.Value = true;
+    player.inventory.ExplosiveInfinity.Value = true;
+    player.Build.FlyEnable.Value = true;
+    player.contextedProperties.MaxHp.Value = 5000;
+  }
+  function getvip3(player) {
+    player.inventory.Main.Value = true;
+    player.inventory.MainInfinity.Value = true;
+    player.inventory.Secondary.Value = true;
+    player.inventory.SecondaryInfinity.Value = true;
+    player.inventory.Melee.Value = true;
+    player.inventory.Explosive.Value = true;
+    player.inventory.ExplosiveInfinity.Value = true;
+    player.Build.FlyEnable.Value = true;
+    player.inventory.Build.Value = true;
+    player.contextedProperties.MaxHp.Value = 10000;
+  }
+  if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120") {
     Teams.Get("Red").Add(player);
   } else {
     Teams.Get("Blue").Add(player);
   }
-  player.contextedProperties.MaxHp.Value = 159;
-  if (player.id == "2827CD16AE7CC982") {
-    getadm(player);
-  } 
-  if (player.id == "D4F07EE3D6175B53") {
+  player.contextedProperties.MaxHp.Value = 50;
+  // Для меня
+  if (player.id == "41F16562BF7046EA") {
     getadm(player);
   }
+  // Для чёрного мечника 
+  if (player.id == "78B0B66D795E5120") {
+    getadm(player);
+  }
+  // Для n1ckа
+  if (player.id == "2F1955AAE64508B9") {
+    getvip3(player);
+  }
+  // Для ghostа
+  if (player.id == "3D58DB48C21B6054") {
+    getvip3(player);
+  }
+  // Для rekiona
+  if (player.id == "B0B43E6C2C10E541") {
+    getvip1(player);
+  }
+  // Для mau
+  if (player.id == "AAA9FBB8CCA3CD90") {
+    getvip3(player);
+  }
+  // Для отчима
+  if (player.id == "8972D9E2F6573D5F") {
+    getvip2(player);
+  }
+  // Для сотрудника
+  if (player.id == "CD8BA5F2ABD9BBDA") {
+    getvip2(player);
+  }
+  // Для брата
+  if (player.id == "8681FCE77AB4939D") {
+    getvip3(player);
+  }
+  // Для ГГчеликаГГ
+  if (player.id == "40265AFE3B5A0AC2") {
+    getvip3(player);
+  }
+  // Для dragonа
+  if (player.id == "C957E4E920E8ACD") {
+    getvip1(player);
+  }
+  if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120" || player.id == "2F1955AAE64508B9" || player.id == "3D58DB48C21B6054" || player.id == "AAD18F7FB400BD5F" || player.id == "B0B43E6C2C10E541" || player.id == "AAA9FBB8CCA3CD90" || player.id == "8681FCE77AB4939D" || player.id == "40265AFE3B5A0AC2" || player.id == "C957E4E920E8ACD") {
+  if (player.id == "41F16562BF7046EA") {
+    player.Properties.Get("Статус").Value = "ГЛ. АДМИН";
+  }
+  if (player.id == "78B0B66D795E5120") {
+    player.Properties.Get("Статус").Value = "АДМИН";
+  }
+  if (player.id == "2F1955AAE64508B9" || player.id == "3D58DB48C21B6054" || player.id == "AAD18F7FB400BD5F" || player.id == "B0B43E6C2C10E541" || player.id == "AAA9FBB8CCA3CD90" || player.id == "8681FCE77AB4939D" || player.id == "40265AFE3B5A0AC2" || player.id == "C957E4E920E8ACD") {
+    player.Properties.Get("Статус").Value = "VIP";
+  }
+  } else {
+    player.Properties.Get("Статус").Value = "ИГРОК";
+  }
+});
+
 Teams.OnPlayerChangeTeam.Add(function(player){ 
   player.Spawns.Spawn();
 });
@@ -90,7 +180,7 @@ Damage.OnDeath.Add(function(player) {
 Damage.OnKill.Add(function(player, killed) {
   if (player.id !== killed.id) { 
     ++player.Properties.Kills.Value;
-    player.Properties.Scores.Value += 100;
+    player.Properties.Scores.Value += 250;
   }
 });
 
