@@ -141,6 +141,7 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
   if (player.id == "C957E4E920E8ACD") {
     getvip1(player);
   }
+  }
   });
   
 
