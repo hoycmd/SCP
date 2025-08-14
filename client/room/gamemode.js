@@ -27,6 +27,7 @@ LeaderBoard.PlayersWeightGetter.Set(function(player) {
   return player.Properties.Get("Scores").Value;
 });
 
+Ui.GetContext().TeamProp1.Value = { Team: "Blue", Prop: "Deaths" };
 Ui.GetContext().TeamProp2.Value = { Team: "Red", Prop: "Deaths" };
 
 Teams.OnRequestJoinTeam.Add(function(player,team){
