@@ -3,11 +3,10 @@ import { Game, Players, Inventory, LeaderBoard, BuildBlocksSet, Teams, Damage, B
 
 Damage.GetContext().DamageOut.Value = true;
 Damage.GetContext().FriendlyFire.Value = true;
-BreackGraph.OnlyPlayerBlocksDmg = GameMode.Parameters.GetBool("PartialDesruction");
-BreackGraph.WeakBlocks = GameMode.Parameters.GetBool("LoosenBlocks");
+BreackGraph.OnlyPlayerBlocksDmg  = true;
 
-Teams.Add("Blue", "<b>Игроки</b>", new Color(1, 0, 0, 0));
-Teams.Add("Red", "<b>Админы</b>", new Color(0, 0, 0, 0));
+Teams.Add("Blue", "<b><color=#9b111e>Зеки D</a></b>", new Color(0, 0, 0, 0.5));
+Teams.Add("Red", "<b>color=#9b111e>SCP</a></b>", new Color(1, 1, 1, 0));
 var admsTeam = Teams.Get("Red");
 var playersTeam = Teams.Get("Blue");
 Teams.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
