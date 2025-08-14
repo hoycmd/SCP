@@ -1,10 +1,10 @@
 import * as room from 'pixel_combats/room';
 import * as basic from 'pixel_combats/basic';
 
-room.Teams.Add('Gvard', '|ГВАРДЕЙЦЫ|', new basic.Color(1, 1, 1, 0));
-room.Teams.Add('Zex', '|Зеки D|', new basic.Color(0, 0, 0, 0.5));
-const prop_team_adm = room.Teams.Get('Gvard');
-const prop_team_player = room.Teams.Get('Zex');
+room.Teams.Add('Blue', '|ГВАРДЕЙЦЫ|', new basic.Color(1, 1, 1, 0));
+room.Teams.Add('Red', '|Зеки D|', new basic.Color(0, 0, 0, 0.5));
+const prop_team_adm = room.Teams.Get('Blue');
+const prop_team_player = room.Teams.Get('Red');
 prop_team_adm.Spawns.SpawnPointsGroups.Add(1);
 prop_team_player.Spawns.SpawnPointsGroups.Add(2);
 
@@ -31,11 +31,12 @@ room.Teams.PlayerChangeTeam.Add(function(p) { p.Spawns.Spawn()});
 
 room.Damage.OnDeaths.Add(function(p) {
  ++p.Properties.Deaths.Value;
-if (p.Properties.Deaths.Value) p.Ui.Hint.Value = 'Вы умерли!';
+p.Ui.Hint.Value = 'Вы умерли!';
 });  
 
 room.Damage.OnKill.Add(function(p,k) {
  if (k.Team != null && k.Team != p.Team) {
+++p.Properties.Kills.Value;
 p.Properties.Scores.Value += 100;
  }  
 });   
