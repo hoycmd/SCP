@@ -5,8 +5,8 @@ Damage.GetContext().DamageOut.Value = true;
 Damage.GetContext().FriendlyFire.Value = true;
 BreackGraph.OnlyPlayerBlocksDmg = true;
 
-Teams.Add("Blue", "<b><color=#9b111e>Заключенные</a></b>", new Color(1, 0.5, 0, 0));
-Teams.Add("Red", "<b><color=#9b111e>Гвардейцы</a></b>", new Color(1, 1, 1, 0));
+Teams.Add("Blue", "<size=55>Заключенные</size></b>", new Color(1, 0.5, 0, 0));
+Teams.Add("Red", "<size=55><color=#9b111e>Гвардейцы</size>", new Color(1, 1, 1, 0));
 var admsTeam = Teams.Get("Red");
 var playersTeam = Teams.Get("Blue");
 Teams.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
