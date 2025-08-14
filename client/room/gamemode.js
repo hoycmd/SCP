@@ -5,7 +5,7 @@ Damage.GetContext().DamageOut.Value = true;
 Damage.GetContext().FriendlyFire.Value = true;
 BreackGraph.OnlyPlayerBlocksDmg  = true;
 
-Teams.Add("Blue", "<b><color=#9b111e>Зеки D</a></b>", new Color(0, 0, 0, 0.5));
+Teams.Add("Blue", "<b><color=#9b111e>Зеки D</a></b>", new Color(1, 0.7, 0, 0);
 Teams.Add("Red", "<b>color=#9b111e>SCP</a></b>", new Color(1, 1, 1, 0));
 var admsTeam = Teams.Get("Red");
 var playersTeam = Teams.Get("Blue");
@@ -19,15 +19,13 @@ admsTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
 LeaderBoard.PlayerLeaderBoardValues = [
   new DisplayValueHeader("Kills", "<b>Киллы</b>", "<b>Киллы</b>"),
   new DisplayValueHeader("Deaths", "<b>Смерти</b>", "<b>Смерти</b>"),
-  new DisplayValueHeader("Scores", "<b>Очки</b>", "<b>Очки</b>"),
-  new DisplayValueHeader("Статус", "<b>Статус</b>", "<b>Статус</b>")
+  new DisplayValueHeader("Scores", "<b>Очки</b>", "<b>Очки</b>")
 ];
 
 LeaderBoard.PlayersWeightGetter.Set(function(player) {
   return player.Properties.Get("Scores").Value;
 });
 
-Ui.GetContext().TeamProp1.Value = { Team: "Blue", Prop: "Deaths" };
 Ui.GetContext().TeamProp2.Value = { Team: "Red", Prop: "Deaths" };
 
 Teams.OnRequestJoinTeam.Add(function(player,team){
