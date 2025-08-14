@@ -1,0 +1,12 @@
+{
+    "Name": "SCP",
+    "Description": "SCP - TnT&Scp: выживи в камере, или умри экспериментом...",
+    "StartClientVersion": 334,
+    "ApiVersion": 2,
+    "MapLists": [
+      {
+        "MapListId": 8401,
+        "Name": "Заготовки"
+      }
+    ]
+}
