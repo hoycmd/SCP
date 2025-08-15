@@ -14,8 +14,8 @@ const blueTeam = teams.create_blue_team();
 const redTeam = teams.create_red_team();
 blueTeam.Build.BlocksSet.Value = room.BuildBlocksSet.Blue;
 redTeam.Build.BlocksSet.Value = room.BuildBlocksSet.AllClear;
-blueTeam.Spawns.RespawnTime = 3;
-redTeam.Spawns.RespawnTime = 5;
+blueTeam.Spawns.RespawnTime.Value = 3;
+redTeam.Spawns.RespawnTime.Value = 5;
 
 // интерфейс команд
 blueTeam.Properties.Get('Deaths').Value = '༒< Scp >༒';
