@@ -26,7 +26,7 @@ redTeam.Properties.Get('Prop').Value = '༒<< удачной игры! >>༒';
 room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: 'Prop' };
 
 // лидерборд
-room.LeaberBoard.LeaberBoardValues = [
+room.LeaberBoard.PlayerLeaberBoardValues = [
  new basic.DisplayValueHeader('Kills', 'KILLS', 'KILLS'),
  new basic.DisplayValueHeader('Deaths', 'DEATHS', 'DEATHS'),
  new basic.DisplayValueHeader('Scores', 'SCORES', 'SCORES'),
