@@ -37,9 +37,13 @@ room.LeaberBoard.PlayersWeightGetter.Set(function(p) {
 });
 
 // вход в команды
-room.Teams.OnRequestJoinTeam.Add(function(p,t) { t.Add(p); });
+room.Teams.OnRequestJoinTeam.Add(function(p,t) { 
+ t.Add(p);
+});
 // спавн по входу
-room.Teams.PlayerChangeTeam.Add(function(p) { p.Spawns.Spawn(); });
+room.Teams.OnPlayerChangeTeam.Add(function(p) { 
+ p.Spawns.Spawn(); 
+});
 
 // счетчик убийств
 room.Damage.OnKill.Add(function(p,k) { 
