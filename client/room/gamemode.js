@@ -2,6 +2,8 @@ import * as room from 'pixel_combats/room';
 import * as basic from 'pixel_combats/basic';
 import * as teams from './default_teams.js';
 
+try {
+ 
 // настройки
 room.Damage.GetContext().DamageOut.Value = true; // урон в режиме
 room.Damage.GetContext().FriendlyFire.Value = true; // урон по своим
@@ -18,9 +20,9 @@ blueTeam.Spawns.RespawnTime = 3;
 redTeam.Spawns.RespawnTime = 5;
 
 // интерфейс команд
-room.Teams.Get('Blue').Properties.Get('Deaths').Value = '༒< Scp >༒';
+blueTeam..Properties.Get('Deaths').Value = '༒< Scp >༒';
 room.Ui.GetContext().TeamProp1.Value = { Team: 'Blue', Prop: 'Deaths' };
-room.Teams.Get('Red').Properties.Get('Prop').Value = '༒<< удачной игры! >>༒';
+redTeam.Properties.Get('Prop').Value = '༒<< удачной игры! >>༒';
 room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: 'Prop' };
 
 // лидерборд
@@ -58,6 +60,16 @@ inventory.Secondary.Value = false;
 inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
+
+// скины к игрокам
+blueTeam.ContextedProperties.SkinType.Value = 2;
+redTeam.ContextedProperties.SkinType.Value = 3;
+
+} catch (e) {
+        room.Players.All.forEach(room.msg => {
+             room.msg.Show(`${e.name}: ${e.message} ${e.stack}`);
+        });
+}
 
 
 
