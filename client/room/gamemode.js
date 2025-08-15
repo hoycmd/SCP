@@ -96,7 +96,8 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
   Teams.Get("Red").Add(player);
   player.contextedProperties.MaxHp.Value = 200;
 } else {
-  Teams.Get("Blue").Add(player);                           
+  Teams.Get("Blue").Add(player);
+}
   player.contextedProperties.MaxHp.Value = 150;
   // Для меня
   if (player.id == "41F16562BF7046EA") {
