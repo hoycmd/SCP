@@ -32,7 +32,7 @@ room.LeaberBoard.LeaberBoardValues = [
  new basic.DisplayValueHeader('Scores', 'SCORES', 'SCORES'),
  new basic.DisplayValueHeader('Spawns', 'SPAWNS', 'SPAWNS')
 ];
-room.LeaberBoard.TeamsWeightGetter.Set(function(t) {
+room.LeaberBoard.TeamWeightGetter.Set(function(t) {
  return t.Properties.Get('Scores').Value;
 });
 
