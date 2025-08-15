@@ -22,10 +22,10 @@ redTeam.Spawns.RespawnTime.Value = 5;
 // интерфейс команд
 blueTeam.Properties.Get('Deaths').Value = '༒< Scp >༒';
 room.Ui.GetContext().TeamProp1.Value = { Team: 'Blue', Prop: 'Deaths' };
-redTeam.Properties.Get('Deaths').Value = '༒<< удачной игры! >>༒';
-room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: 'Deaths' };
+redTeam.Properties.Get('Prop').Value = '༒<< удачной игры! >>༒';
+room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: 'Prop' };
 
-// лидерборд
+/лидербордрд
 room.LeaberBoard.PlayerLeaberBoardValues = [
  new basic.DisplayValueHeader('Kills', 'KILLS', 'KILLS'),
  new basic.DisplayValueHeader('Deaths', 'DEATHS', 'DEATHS'),
@@ -51,7 +51,7 @@ p.Properties.Scores.Value += 100;
 
 // счетчик смертей
 room.Damage.OnDeath.Add(function(p) {
- ++p.Properties.Deaths.Value;
+ ++p.Properties.DeathValueue;
 });
 
 // счетчик спавнов
