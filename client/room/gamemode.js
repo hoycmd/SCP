@@ -123,8 +123,13 @@ MeleeTrigger.Enable = true;
 MeleeTrigger.OnEnter.Add(function(p) {
  if (p.inventory.Melee.Value) {
   p.Ui.Hint.Value = '<< Повторно взять нож, неполучится! >>';
+   return;
  }
  p.Ui.Hint.Value = '<< Ты взял: нож! >>';
  p.inventory.Melee.Value = true;
 });
+const MeleeTrigger = room.AreaViewService.GetContext().Get('MeleeTrigger');
+MeleeTrigger.Tags = ['MeleeTrigger'];
+MeleeTrigger.Color = new basic.Color(0, 0.5, 0, 0);
+MeleeTrigger.Enable = true;
                          
