@@ -21,7 +21,9 @@ LeaderBoard.PlayerLeaderBoardValues = [
   new DisplayValueHeader("Kills", "<b>Киллы</b>", "<b>Киллы</b>"),
   new DisplayValueHeader("Deaths", "<b>Смерти</b>", "<b>Смерти</b>"),
   new DisplayValueHeader("Scores", "<b>Очки</b>", "<b>Очки</b>"),
-  new DisplayValueHeader("Статус", "<b>Статус</b>", "<b>Статус</b>"LeaderBoardrBoard.PlayersWeightGetter.Set(function(player) {
+  new DisplayValueHeader("Статус", "<b>Статус</b>", "<b>Статус</b>")
+];                        
+ LeaderBoard.PlayersWeightGetter.Set(function(player) {
   return player.Properties.Get("Scores").Value;
 });
 
