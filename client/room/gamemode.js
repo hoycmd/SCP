@@ -61,7 +61,7 @@ room.Spawns.OnSpawn.Add(function(p) {
 
 // инвентарь 
 const inventory = room.Inventory.GetContext();
-inventory.Main.Valuefalselse;
+inventory.Main.Value = false;
 inventory.Secondary.Value = false;
 inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
