@@ -116,3 +116,15 @@ inventory.Build.Value = false;
 } catch (e) {
  room.msg.Show(e);
 }
+
+const MeleeTrigger = room.AreaPlayerTriggerService.Get('MeleeTrigger');
+MeleeTrigger.Tags = ["Нож"];
+MeleeTrigger.Enable = true;
+MeleeTrigger.OnEnter.Add(function(p) {
+ if (p.inventory.Melee.Value) {
+  p.Ui.Hint.Value = '<< Повторно взять нож, неполучится! >>';
+ }
+ p.Ui.Hint.Value = '<< Ты взял: нож! >>';
+ p.inventory.Melee.Value = true;
+});
+                         
