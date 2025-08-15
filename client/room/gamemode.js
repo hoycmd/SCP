@@ -1,7 +1,7 @@
 import * as room from 'pixel_combats/room';
 import * as basic from 'pixel_combats/basic';
 import * as teams from './default_teams.js';
- 
+try {
 // настройки
 room.Damage.GetContext().DamageOut.Value = true; // урон в режиме
 room.Damage.GetContext().FriendlyFire.Value = true; // урон по своим
@@ -81,3 +81,6 @@ inventory.Secondary.Value = false;
 inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
+} catch (e) {
+ room.msg.Show(e);
+}
