@@ -6,8 +6,8 @@ Damage.GetContext().FriendlyFire.Value = true;
 BreackGraph.OnlyPlayerBlocksDmg = true; 
 TeamsBalancer.IsAutoBalance = true;
 
-Teams.Add("Blue", "<size=55>Заключенные</size></b>", new Color(1, 0.5, 0, 0));
-Teams.Add("Red", "<size=55><color=#9b111e>Гвардейцы</size>", new Color(1, 1, 1, 0));
+Teams.Add("Blue", "Заключенные", new Color(1, 0.5, 0, 0));
+Teams.Add("Red", "Гвардейцы", new Color(1, 1, 1, 0));
 var admsTeam = Teams.Get("Red");
 var playersTeam = Teams.Get("Blue");
 Teams.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
@@ -93,7 +93,15 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
     player.inventory.Build.Value = true;
     player.contextedProperties.MaxHp.Value = 10000;
   }
-  player.contextedProperties.MaxHp.Value = 50;
+  Teams.Get("Red").Add(player);
+  player.contextedProperties.MaxHp.Value = 200;
+  player.inventory.Main.Value = true;
+  player.inventory.Secondary.Value = true;
+  player.inventory.Melee.Value = true;
+  player.inventory.Build.Value = true;
+   } 
+  Teams.Get("Blue").Add(player);                           
+  player.contextedProperties.MaxHp.Value = 150;
   // Для меня
   if (player.id == "41F16562BF7046EA") {
     getadm(player);
