@@ -20,8 +20,8 @@ redTeam.Spawns.RespawnTime.Value = 5;
 // интерфейс команд
 blueTeam.Properties.Get('Deaths').Value = '༒< Scp >༒';
 room.Ui.GetContext().TeamProp1.Value = { Team: 'Blue', Prop: 'Deaths' };
-redTeam.Properties.Get('Deaths').Value = '༒<< удачной игры! >>༒';
-room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: 'Deaths' };
+redTeam.Properties.Get('Prop').Value = '༒<< удачной игры! >>༒';
+room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: 'Prop' };
 
 // лидерборд
 room.LeaberBoard.LeaberBoardValues = [
