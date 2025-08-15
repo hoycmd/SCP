@@ -37,7 +37,7 @@ room.LeaberBoard.TeamWeightGetter.Set(function(t) {
 });
 
 // вход в команды
-room.Teams.RequestJoinTeam.Add(function(p,t) { t.Add(p); });
+room.Teams.OnRequestJoinTeam.Add(function(p,t) { t.Add(p); });
 // спавн по входу
 room.Teams.PlayerChangeTeam.Add(function(p) { p.Spawns.Spawn(); });
 
