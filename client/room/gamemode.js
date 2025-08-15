@@ -26,13 +26,13 @@ redTeam.Properties.Get('Prop').Value = '༒<< удачной игры! >>༒';
 room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: 'Prop' };
 
 // лидерборд
-room.LeaberBoard.PlayerLeaberBoardValues = [
+room.LeaderBoard.PlayerLeaberBoardValues = [
  new basic.DisplayValueHeader('Kills', 'KILLS', 'KILLS'),
  new basic.DisplayValueHeader('Deaths', 'DEATHS', 'DEATHS'),
  new basic.DisplayValueHeader('Scores', 'SCORES', 'SCORES'),
  new basic.DisplayValueHeader('Spawns', 'SPAWNS', 'SPAWNS')
 ];
-room.LeaberBoard.PlayersWeightGetter.Set(function(p) {
+room.LeaderBoard.PlayersWeightGetter.Set(function(p) {
  return p.Properties.Get('Scores').Value;
 });
 
