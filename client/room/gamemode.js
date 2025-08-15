@@ -39,7 +39,7 @@ room.Teams.RequestJoinTeam.Add(function(p,t) { t.Add(p); });
 room.Teams.PlayerChangeTeam.Add(function(p) { p.Spawns.Spawn()});
 
 // счетчик убийств
-room.Damage.OnKill.Add(functiop(p,k) { 
+room.Damage.OnKill.Add(function(p,k) { 
   if (k.Team != null && k.Team != p.Team) {
 ++p.Properties.Kills.Value;
 p.Properties.Scores.Value += 100;
