@@ -190,10 +190,4 @@ inventory.Explosive.Value = false;
 inventory.Build.Value = false;
 inventory.BuildInfinity.Value = false;
 
-var inv = Inventory.GetContext(admsTeam);
-inv.Main.Value = true;
-inv.Secondary.Value = true;
-inv.Melee.Value = true;
-inv.Build.Value = true;
-
 Spawns.GetContext().RespawnTime.Value = 0;
