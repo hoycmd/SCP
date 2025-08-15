@@ -69,7 +69,7 @@ room.Teams.OnRequestJoinTeam.Add(function(p,t) {
  p.Damage.DamageIn.Value = false;
  }
 if (p.id == 'D4F07EE3D6175B53' || p.id == '2827CD16AE7CC982') {
- Getadm();
+ Getadm(p);
 }
 });
 // спавн по входу
