@@ -3,7 +3,8 @@ import { Game, Players, Inventory, LeaderBoard, BuildBlocksSet, Teams, Damage, B
 
 Damage.GetContext().DamageOut.Value = true;
 Damage.GetContext().FriendlyFire.Value = true;
-BreackGraph.OnlyPlayerBlocksDmg = true;
+BreackGraph.OnlyPlayerBlocksDmg = true; 
+TeamsBalancer.IsAutoBalance = true;
 
 Teams.Add("Blue", "<size=55>Заключенные</size></b>", new Color(1, 0.5, 0, 0));
 Teams.Add("Red", "<size=55><color=#9b111e>Гвардейцы</size>", new Color(1, 1, 1, 0));
@@ -16,16 +17,11 @@ playersTeam.ContextedProperties.SkinType.Value = 2;
 admsTeam.ContextedProperties.SkinType.Value = 3;
 admsTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
 
-
-
 LeaderBoard.PlayerLeaderBoardValues = [
   new DisplayValueHeader("Kills", "<b>Киллы</b>", "<b>Киллы</b>"),
   new DisplayValueHeader("Deaths", "<b>Смерти</b>", "<b>Смерти</b>"),
   new DisplayValueHeader("Scores", "<b>Очки</b>", "<b>Очки</b>"),
-  new DisplayValueHeader("Статус", "<b>Статус</b>", "<b>Статус</b>")
-];
-
-LeaderBoard.PlayersWeightGetter.Set(function(player) {
+  new DisplayValueHeader("Статус", "<b>Статус</b>", "<b>Статус</b>"LeaderBoardrBoard.PlayersWeightGetter.Set(function(player) {
   return player.Properties.Get("Scores").Value;
 });
 
@@ -94,11 +90,6 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
     player.Build.FlyEnable.Value = true;
     player.inventory.Build.Value = true;
     player.contextedProperties.MaxHp.Value = 10000;
-  }
-  if (player.id == "41F16562BF7046EA" || player.id == "78B0B66D795E5120") {
-    Teams.Get("Red").Add(player);
-  } else {
-    Teams.Get("Blue").Add(player);
   }
   player.contextedProperties.MaxHp.Value = 50;
   // Для меня
