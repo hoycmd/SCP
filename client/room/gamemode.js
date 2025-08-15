@@ -14,6 +14,8 @@ const blueTeam = teams.create_blue_team();
 const redTeam = teams.create_red_team();
 blueTeam.Build.BlocksSet.Value = room.BuildBlocksSet.Blue;
 redTeam.Build.BlocksSet.Value = room.BuildBlocksSet.AllClear;
+blueTeam.ContextedProperties.SkinType.Value = 2;
+redTeam.ContextedProperties.SkinType.Value = 3;
 blueTeam.Spawns.RespawnTime.Value = 3;
 redTeam.Spawns.RespawnTime.Value = 5;
 
@@ -25,9 +27,10 @@ room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: 'Prop' };
 
 // лидерборд
 room.LeaberBoard.LeaberBoardValues = [
- new basic.DisplayValueHeader('Kills', 'K', 'K'),
- new basic.DisplayValueHeader('Deaths', 'D', 'D'),
- new basic.DisplayValueHeader('Scores', 'S', 'S')
+ new basic.DisplayValueHeader('Kills', 'KILLS', 'KILLS'),
+ new basic.DisplayValueHeader('Deaths', 'DEATHS', 'DEATHS'),
+ new basic.DisplayValueHeader('Scores', 'SCORES', 'SCORES'),
+ new basic.DisplayValueHeader('Spawns', 'SPAWNS', 'SPAWNS')
 ];
 room.LeaberBoard.TeamsWeightGetter.Set(function(t) {
  return t.Properties.Get('Scores').Value;
@@ -51,9 +54,14 @@ room.Damage.OnDeath.Add(function(p) {
  ++p.Properties.Deaths.Value;
 });
 
+// счетчик спавнов
+room.Spawns.OnSpawn.Add(function(p) {
+ ++p.Properties.Spawns.Value;
+});
+
 // инвентарь 
 const inventory = room.Inventory.GetContext();
-inventory.Main.Value = false;
+inventory.Main.Valuefalselse;
 inventory.Secondary.Value = false;
 inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
