@@ -14,8 +14,8 @@ const blueTeam = teams.create_blue_team();
 const redTeam = teams.create_red_team();
 blueTeam.Build.BlocksSet.Value = room.BuildBlocksSet.Blue;
 redTeam.Build.BlocksSet.Value = room.BuildBlocksSet.AllClear;
-blueTeam.ContextedProperties.SkinType.Value = 2;
-redTeam.ContextedProperties.SkinType.Value = 3;
+blueTeam.contextedProperties.SkinType.Value = 2;
+redTeam.contextedProperties.SkinType.Value = 3;
 blueTeam.Spawns.RespawnTime.Value = 3;
 redTeam.Spawns.RespawnTime.Value = 5;
 
@@ -57,6 +57,17 @@ room.Damage.OnDeath.Add(function(p) {
 // счетчик спавнов
 room.Spawns.OnSpawn.Add(function(p) {
  ++p.Properties.Spawns.Value;
+});
+
+// бессмертие
+const immortalityTimerName = 'immortality';
+room.Spawns.GetContext().OnSpawn.Add(function(p) {
+ p.Properties.Immortliaty.Value = true;
+ p.Timers.Get(immortalityTimerName).Restart(5);
+});
+room.Timers.OnPlayerTimer.Add(function(t) {       
+ if (t.Id != immortalityTimerName) return;
+ t.Player.Properties.Immortliaty.Value = false;
 });
 
 // инвентарь 
