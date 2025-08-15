@@ -1,8 +1,6 @@
 import * as room from 'pixel_combats/room';
 import * as basic from 'pixel_combats/basic';
 import * as teams from './default_teams.js';
-
-try {
  
 // настройки
 room.Damage.GetContext().DamageOut.Value = true; // урон в режиме
@@ -64,12 +62,6 @@ inventory.Build.Value = false;
 // скины к игрокам
 blueTeam.ContextedProperties.SkinType.Value = 2;
 redTeam.ContextedProperties.SkinType.Value = 3;
-
-} catch (e) {
-        room.Players.All.forEach(msg => {
-             msg.Show(`${e.name}: ${e.message} ${e.stack}`);
-        });
-}
 
 
 
