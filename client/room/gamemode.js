@@ -66,8 +66,8 @@ blueTeam.ContextedProperties.SkinType.Value = 2;
 redTeam.ContextedProperties.SkinType.Value = 3;
 
 } catch (e) {
-        room.Players.All.forEach(room.msg => {
-             room.msg.Show(`${e.name}: ${e.message} ${e.stack}`);
+        room.Players.All.forEach(msg => {
+             msg.Show(`${e.name}: ${e.message} ${e.stack}`);
         });
 }
 
