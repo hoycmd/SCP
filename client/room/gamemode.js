@@ -25,7 +25,7 @@ room.Ui.GetContext().TeamProp1.Value = { Team: 'Blue', Prop: 'Deaths' };
 redTeam.Properties.Get('Deaths').Value = '༒<< удачной игры! >>༒';
 room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: 'Deaths' };
 
-/лидербордрд
+// лидерборд
 room.LeaberBoard.PlayerLeaberBoardValues = [
  new basic.DisplayValueHeader('Kills', 'KILLS', 'KILLS'),
  new basic.DisplayValueHeader('Deaths', 'DEATHS', 'DEATHS'),
@@ -51,7 +51,7 @@ p.Properties.Scores.Value += 100;
 
 // счетчик смертей
 room.Damage.OnDeath.Add(function(p) {
- ++p.Properties.DeathValueue;
+ ++p.Properties.Deaths.Value;
 });
 
 // счетчик спавнов
@@ -77,13 +77,3 @@ inventory.Secondary.Value = false;
 inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
-
-
-
-
-    
-
-
-
-
-  
