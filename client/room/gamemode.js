@@ -36,7 +36,7 @@ room.LeaberBoard.TeamsWeightGetter.Set(function(t) {
 // вход в команды
 room.Teams.RequestJoinTeam.Add(function(p,t) { t.Add(p); });
 // спавн по входу
-room.Teams.PlayerChangeTeam.Add(function(p) { p.Spawns.Spawn()});
+room.Teams.PlayerChangeTeam.Add(function(p) { p.Spawns.Spawn(); });
 
 // счетчик убийств
 room.Damage.OnKill.Add(function(p,k) { 
@@ -58,11 +58,6 @@ inventory.Secondary.Value = false;
 inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
-
-// скины к игрокам
-blueTeam.ContextedProperties.SkinType.Value = 2;
-redTeam.ContextedProperties.SkinType.Value = 3;
-
 
 
 
