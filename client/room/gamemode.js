@@ -32,8 +32,8 @@ room.LeaberBoard.PlayerLeaberBoardValues = [
  new basic.DisplayValueHeader('Scores', 'SCORES', 'SCORES'),
  new basic.DisplayValueHeader('Spawns', 'SPAWNS', 'SPAWNS')
 ];
-room.LeaberBoard.TeamWeightGetter.Set(function(t) {
- return t.Properties.Get('Scores').Value;
+room.LeaberBoard.PlayersWeightGetter.Set(function(p) {
+ return p.Properties.Get('Scores').Value;
 });
 
 // вход в команды
@@ -43,7 +43,7 @@ room.Teams.PlayerChangeTeam.Add(function(p) { p.Spawns.Spawn(); });
 
 // счетчик убийств
 room.Damage.OnKill.Add(function(p,k) { 
-  if (k.Team != null && k.Team != p.Team) {
+  if (p.id !== k.id) { 
 ++p.Properties.Kills.Value;
 p.Properties.Scores.Value += 100;
   }
@@ -63,7 +63,7 @@ room.Spawns.OnSpawn.Add(function(p) {
 const immortalityTimerName = 'immortality';
 room.Spawns.GetContext().OnSpawn.Add(function(p) {
  p.Properties.Immortliaty.Value = true;
- p.Timers.Get(immortalityTimerName).Restart(5);
+ timer = p.Timers.Get(immortalityTimerName).Restart(5);
 });
 room.Timers.OnPlayerTimer.Add(function(t) {       
  if (t.Id != immortalityTimerName) return;
