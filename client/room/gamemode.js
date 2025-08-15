@@ -59,9 +59,6 @@ inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
 
-// скины к игрокам
-blueTeam.ContextedProperties.SkinType.Value = 2;
-redTeam.ContextedProperties.SkinType.Value = 3;
 
 
 
