@@ -12,6 +12,8 @@ var playersTeam = Teams.Get("Blue");
 Teams.Get("Blue").Spawns.SpawnPointsGroups.Add(1);
 Teams.Get("Red").Spawns.SpawnPointsGroups.Add(2);
 playersTeam.Build.BlocksSet.Value = BuildBlocksSet.Blue;
+playersTeam.ContextedProperties.SkinType.Value = 2;
+admsTeam.ContextedProperties.SkinType.Value = 3;
 admsTeam.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
 
 
