@@ -95,11 +95,7 @@ Teams.OnRequestJoinTeam.Add(function(player,team){
   }
   Teams.Get("Red").Add(player);
   player.contextedProperties.MaxHp.Value = 200;
-  player.inventory.Main.Value = true;
-  player.inventory.Secondary.Value = true;
-  player.inventory.Melee.Value = true;
-  player.inventory.Build.Value = true;
-   } 
+} else {
   Teams.Get("Blue").Add(player);                           
   player.contextedProperties.MaxHp.Value = 150;
   // Для меня
@@ -193,5 +189,11 @@ inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
 inventory.BuildInfinity.Value = false;
+
+var inv = Inventory.GetContext(admsTeam);
+inv.Main.Value = true;
+inv.Secondary.Value = true;
+inv.Melee.Value = true;
+inv.Build.Value = true;
 
 Spawns.GetContext().RespawnTime.Value = 0;
