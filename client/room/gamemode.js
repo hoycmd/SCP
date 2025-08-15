@@ -18,7 +18,7 @@ blueTeam.Spawns.RespawnTime = 3;
 redTeam.Spawns.RespawnTime = 5;
 
 // интерфейс команд
-blueTeam..Properties.Get('Deaths').Value = '༒< Scp >༒';
+blueTeam.Properties.Get('Deaths').Value = '༒< Scp >༒';
 room.Ui.GetContext().TeamProp1.Value = { Team: 'Blue', Prop: 'Deaths' };
 redTeam.Properties.Get('Prop').Value = '༒<< удачной игры! >>༒';
 room.Ui.GetContext().TeamProp2.Value = { Team: 'Red', Prop: 'Prop' };
