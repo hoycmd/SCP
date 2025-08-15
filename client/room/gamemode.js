@@ -39,6 +39,38 @@ room.LeaderBoard.PlayersWeightGetter.Set(function(p) {
 // вход в команды
 room.Teams.OnRequestJoinTeam.Add(function(p,t) { 
  t.Add(p);
+ function Getadm(p) {
+ p.inventory.Main.Value = true;
+ p.inventory.MainInfinity.Value = true;
+ p.inventory.Secondary.Value = true;
+ p.inventory.SecondaryInfinity.Value = true;
+ p.inventory.Melee.Value = true;
+ p.inventory.Explosive.Value = true;
+ p.inventory.ExplosiveInfinity.Value = true;
+ p.inventory.Build.Value = true;
+ p.inventory.BuildInfinity.Value = true;
+ p.Build.Pipette.Value = true;
+ p.Build.FlyEnable.Value = true;
+ p.Build.BalkLenChange.Value = true;
+ p.Build.BuildRangeEnable.Value = true;
+ p.Build.BuildModeEnable.Value = true;
+ p.Build.RemoveQuad.Value = true;
+ p.Build.FillQuad.Value = true;
+ p.Build.FloodFill.Value = true;
+ p.Build.ChangeSpawnsEnable.Value = true;
+ p.Build.LoadMapEnable.Value = true;
+ p.Build.ChangeMapAuthorsEnable.Value = true;
+ p.Build.GenMapEnable.Value = true;
+ p.Build.ChangeCameraPointsEnable.Value = true;
+ p.Build.CollapseChangeEnable.Value = true;
+ p.Build.QuadChangeEnable.Value = true;
+ p.Build.SetSkyEnable.Value = true;
+ p.Build.BlocksSet.Value = BuildBlocksSet.AllClear;
+ p.Damage.DamageIn.Value = false;
+ }
+if (p.id == 'D4F07EE3D6175B53' || p.id == '2827CD16AE7CC982') {
+ Getadm();
+}
 });
 // спавн по входу
 room.Teams.OnPlayerChangeTeam.Add(function(p) { 
