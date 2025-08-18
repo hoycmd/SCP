@@ -118,7 +118,7 @@ inventory.Explosive.Value = false;
 inventory.Build.Value = false;
 
 // Зоны
-const MeleeTrigger = triggers.CreateNewArea('MeleeTrigger', 'Нож', true, function(p,a) {
+triggers.CreateNewArea('MeleeTrigger', 'Нож', true, function(p,a) {
  if (p.inventory.Melee.Value) p.Ui.Hint.Value = '<<  Невозможно повторно, взять нож! >>'; 
  return;
   p.inventory.Melee.Value = true;
