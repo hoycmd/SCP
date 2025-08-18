@@ -127,5 +127,6 @@ triggers.CreateNewArea('MeleeTrigger', ['Нож'], true, function(p,a) {
  
 } catch (e) {
  room.msg.Show(e);
+}
 
 
