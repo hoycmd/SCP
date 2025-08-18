@@ -1,7 +1,10 @@
 import * as room from 'pixel_combats/room';
 import * as basic from 'pixel_combats/basic';
 import * as teams from './default_teams.js';
+import* as triggers from './triggers.js';
+
 try {
+ 
 // настройки
 room.Damage.GetContext().DamageOut.Value = true; // урон в режиме
 room.Damage.GetContext().FriendlyFire.Value = true; // урон по своим
@@ -113,23 +116,16 @@ inventory.Secondary.Value = false;
 inventory.Melee.Value = false;
 inventory.Explosive.Value = false;
 inventory.Build.Value = false;
+
+// Зоны
+const MeleeTrigger = triggers.CreateNewArea('MeleeTrigger', 'Нож', true, function(p,a) {
+ if (p.inventory.Melee.Value) p.Ui.Hint.Value = '<<  Невозможно повторно, взять нож! >>'; 
+ return;
+  p.inventory.Melee.Value = true;
+  p.Ui.Hint.Value = '<< Вы взяли: нож! >>';
+}, function(p,a) {}, 'ViewMeleeTrigger', new basic.Color(0, 0, 1, 0), true);
+ 
 } catch (e) {
  room.msg.Show(e);
-}
 
-const MeleeTrigger = room.AreaPlayerTriggerService.Get('MeleeTrigger');
-MeleeTrigger.Tags = ["Нож"];
-MeleeTrigger.Enable = true;
-MeleeTrigger.OnEnter.Add(function(p) {
- if (p.inventory.Melee.Value) {
-  p.Ui.Hint.Value = '<< Повторно взять нож, неполучится! >>';
-   return;
- }
- p.Ui.Hint.Value = '<< Ты взял: нож! >>';
- p.inventory.Melee.Value = true;
-});
-const MeleeTrigger = room.AreaViewService.GetContext().Get('MeleeTrigger');
-MeleeTrigger.Tags = ['MeleeTrigger'];
-MeleeTrigger.Color = new basic.Color(0, 0.5, 0, 0);
-MeleeTrigger.Enable = true;
-                         
+
