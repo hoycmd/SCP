@@ -126,7 +126,7 @@ const MeleeTrigger = triggers.CreateNewArea('MeleeTrigger', ['Нож'], true, fu
 }, function(p,a) {}, 'ViewMeleeTrigger', new basic.Color(0, 0, 1, 0), true);
  
 } catch (e) {
- room.msg.Show(e);
+ room.msg.Show(`${e.name}: ${e.message} ${e.stack}`);
 }
 
 
